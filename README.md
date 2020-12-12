@@ -64,6 +64,10 @@ We propose the following steps to solve the problem:
 - if 2 buyers have equal highest bids, then the highest buyer index is the winner (convention). Alternatively, we could randomly select the winner among the candidates;
 - if a winner buyer is not found (None), the following steps are skipped;
 - sorting is the most computationally greedy step;
+- the solution is a static one, meaning we perform computation once with the exhaustive description of the auction.
+- we also implemented an alternative version without testing that would compute the result dynamically (and avoid the expensive list sorting task): the auction state is updated each time a buyer places a bid.
+The auction model `DynamicAuction` is defined in `./dynamic_auction.py`. The logic is not tested, though we provide an example of use in the  main `./teads-hw.py` after the static part.
+Again, the use case of bid equality is not answered.
 
 
 ### Code structure
@@ -71,6 +75,7 @@ We propose the following steps to solve the problem:
 - `./README.md`: the current markdown document;
 - `./teads-hw.py`: the main of the repo;
 - `./auction.py`: defines the `Auction` class;
+- `./dynamic_auction.py`: defines the `DynamicAuction` class (not tested part of the code);
 - `./utils.py`: tooling methods for the problem;
 - `./tests`: tests directory.
 
